@@ -1,22 +1,30 @@
 {
   "name": "barbara-holmes",
   "version": "1.0.0",
-  "private": true,
   "description": "Barbara Holmes ",
   "author": "Aleksandr Tagunov",
   "keywords": [
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
+    "build": "cross-env NODE_OPTIONS=\"-r esm\" gatsby build",
+    "develop": "cross-env NODE_OPTIONS=\"-r esm\" gatsby develop",
     "start": "gatsby develop",
-    "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
-  "license": "0BSD",
+  "eslintConfig": {
+    "extends": [
+      "wesbos"
+    ]
+  },
+  "license": "MIT",
   "dependencies": {
+    "@wordpress/block-library": "^2.27.0",
     "babel-plugin-styled-components": "^1.12.0",
+    "dotenv": "^8.2.0",
     "gatsby": "^2.26.1",
     "gatsby-image": "^2.8.0",
     "gatsby-plugin-react-helmet": "^3.7.0",
@@ -29,5 +37,21 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-wesbos": "^1.0.1",
+    "eslint-plugin-html": "^6.1.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.2",
+    "esm": "^3.2.25",
+    "prettier": "^2.1.1",
+    "cross-env": "^7.0.3"
   }
 }
