@@ -4,7 +4,10 @@ dotenv.config({ path: '.env' });
 
 export default {
   siteMetadata: {
-    title: 'Barbara Holmes ',
+    title: `BARBARA HOLMES`,
+    siteUrl: 'https://tagunovdesign.com',
+    description: 'Barba Holmes portfolio website',
+    twitter: '@alex_tagunov',
   },
   plugins: [
     {
