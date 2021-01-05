@@ -11,6 +11,7 @@ const GlobalStyles = createGlobalStyle`
 
 }
   html {
+    font-size: 18px;
   box-sizing: border-box;
 }
 *, *:before, *:after {

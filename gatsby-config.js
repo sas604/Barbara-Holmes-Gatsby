@@ -7,7 +7,7 @@ export default {
     title: `BARBARA HOLMES`,
     siteUrl: 'https://tagunovdesign.com',
     description: 'Barba Holmes portfolio website',
-    twitter: '@alex_tagunov',
+    twitter: '@alex_tagunovomm',
   },
   plugins: [
     {
