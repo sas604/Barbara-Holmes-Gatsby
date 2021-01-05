@@ -28,24 +28,21 @@ const IndexPageStyles = styled.section`
   }
 `;
 
-const IndexPage = ({ data }) => {
-  console.log(data.titleImage.fluid.src);
-  return (
-    <Layout>
-      <IndexPageStyles>
-        <Img
-          className="hero"
-          fluid={data.titleImage.fluid}
-          alt="instalation No 5"
-        />
-        <header>
-          <h1>Barbara Holmes</h1>
-          <span className="tag-line">Artist | Designer | Educator</span>
-        </header>
-      </IndexPageStyles>
-    </Layout>
-  );
-};
+const IndexPage = ({ data }) => (
+  <Layout>
+    <IndexPageStyles>
+      <Img
+        className="hero"
+        fluid={data.titleImage.fluid}
+        alt="instalation No 5"
+      />
+      <header>
+        <h1>Barbara Holmes</h1>
+        <span className="tag-line">Artist | Designer | Educator</span>
+      </header>
+    </IndexPageStyles>
+  </Layout>
+);
 
 export const query = graphql`
   query MyQuery {
