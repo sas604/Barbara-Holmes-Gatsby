@@ -39,6 +39,9 @@ const NavStyles = styled(motion.nav)`
   }
 `;
 export default function Nav({ navOpen }) {
+  const isActive = ({ isCurrent }) =>
+    isCurrent ? { className: 'active' } : { className: 'notActive' };
+
   return (
     <NavStyles
       animate={navOpen ? 'open' : 'closed'}
@@ -46,10 +49,14 @@ export default function Nav({ navOpen }) {
     >
       <motion.ul layout>
         <li>
-          <Link to="/#about">About</Link>
+          <Link getProps={isActive} to="/#about">
+            About
+          </Link>
         </li>
         <li>
-          <Link to="/portfolio">Portfolio</Link>{' '}
+          <Link getProps={isActive} to="/portfolio">
+            Portfolio
+          </Link>{' '}
         </li>
         <li>
           <Link to="/contacts">Contacts</Link>{' '}
