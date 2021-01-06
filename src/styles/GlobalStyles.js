@@ -4,14 +4,17 @@ const GlobalStyles = createGlobalStyle`
 
 :root{
     --white:hsl(40, 1%, 98%);
-    --gold: hsl(35, 78%, 74%);
-    --blue: hsl(207,19%,45%);
+    --gold: hsl(35, 78%, 60%);
+    --blue: hsl(207,19%,35%);
     --gray: hsl(207, 17% 25%);
     --black:hsl(207,18%,15%);
+    --gold-bright:hsl(40, 85%, 50%); 
+    --medium: 960px;
+    --small: 568px;
 
 }
   html {
-    font-size: 18px;
+    font-size: 16px;
   box-sizing: border-box;
 }
 *, *:before, *:after {
@@ -47,7 +50,21 @@ body::-webkit-scrollbar {
 img {
     max-width: 100%;
   }
+  p{
+    line-height: 1.4;
+  }
+:any-link{
 
-`;
+  color:var(--gold);
+  font-weight:600;
+  font-style:italic;
+  font-size: 1.1rem;
+  text-decoration:none;
+  &:hover, &:focus{
+    color: var(--gold-bright);
+    border-bottom: 2px solid var(--gold-bright);
+  }
+
+}`;
 
 export default GlobalStyles;

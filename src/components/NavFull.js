@@ -1,21 +1,15 @@
-import { motion } from 'framer-motion';
 import { Link } from 'gatsby';
 import React from 'react';
 
 import { NavStyles } from '../styles/NavStyles';
 
-export default function Nav({ navOpen }) {
+export default function NavFull() {
   const isActive = ({ isCurrent }) =>
     isCurrent ? { className: 'active' } : { className: 'notActive' };
 
   return (
-    <NavStyles
-      as={motion.nav}
-      initial={{ x: '-100%' }}
-      animate={navOpen ? 'open' : 'closed'}
-      variants={{ closed: { x: '-100%' }, open: { x: '-2rem' } }}
-    >
-      <motion.ul layout>
+    <NavStyles>
+      <ul layout>
         <li>
           <Link getProps={isActive} to="/#about">
             About
@@ -32,7 +26,7 @@ export default function Nav({ navOpen }) {
         <li>
           <Link to="/resume">Resume</Link>{' '}
         </li>
-      </motion.ul>
+      </ul>
     </NavStyles>
   );
 }

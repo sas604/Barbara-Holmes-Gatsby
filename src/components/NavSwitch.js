@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const BurgerStyles = styled(motion.button)`
   display: none;
-  @media (max-width: 526px) {
+  @media (max-width: 960px) {
     appearance: none;
     border: 0;
     background-color: transparent;
@@ -13,7 +13,7 @@ const BurgerStyles = styled(motion.button)`
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    position: fixed;
+    position: absolute;
     z-index: 5;
     top: 1rem;
     left: 0.5rem;
