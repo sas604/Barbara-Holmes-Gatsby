@@ -9,7 +9,7 @@ export default function NavFull() {
 
   return (
     <NavStyles>
-      <ul layout>
+      <ul>
         <li>
           <Link getProps={isActive} to="/#about">
             About

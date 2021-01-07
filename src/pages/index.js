@@ -1,5 +1,5 @@
 import { graphql } from 'gatsby';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
@@ -65,14 +65,6 @@ const HeroSectionStyles = styled.div`
         font-size: 1.2rem;
       }
     }
-    /* .bg {
-      height: 5rem;
-      background-color: gray;
-      grid-row: 1;
-      grid-column: 6/-1;
-      align-self: flex-end;
-      z-index: 4;
-    } */
   }
 `;
 
@@ -149,7 +141,6 @@ export default function IndexPage({ data }) {
             fluid={data.titleImage.fluid}
             alt="instalation No 5"
           />
-          <div className="bg" />
           <header>
             <h1>Barbara Holmes</h1>
             <span className="tag-line">Artist | Designer | Educator</span>
