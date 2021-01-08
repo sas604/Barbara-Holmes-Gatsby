@@ -6,7 +6,7 @@ import Layout from '../components/Layout';
 
 const ProjectGridStyles = styled.ul`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(275px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(275px, 350px));
   padding: 1.5rem;
   gap: 1rem;
   .gatsby-image-wrapper {
@@ -37,17 +37,27 @@ const ProjectGridStyles = styled.ul`
 `;
 
 export default function Portfolio({ data }) {
-  console.log(data);
-  const pages = Math.ceil(data.posts.totalCount / 6);
-  console.log(pages);
+  console.log(data.posts.count);
   return (
     <Layout>
       <h1> Portfolio</h1>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/portfolio">All</Link>
+          </li>
+          {data.childCat.wpChildren.nodes.map((category) => (
+            <li>
+              <Link to={`/portfolio/${category.name}`}>{category.name}</Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
       <section>
         <ProjectGridStyles>
-          {data.posts.nodes.map((post) => (
+          {data.posts.posts.nodes.map((post) => (
             <li key={post.id}>
-              <Link to={`/${post.slug}`}>
+              <Link to={`${post.slug}`}>
                 <Img
                   fluid={
                     post.featuredImage.node.localFile.childImageSharp.fluid
@@ -65,30 +75,34 @@ export default function Portfolio({ data }) {
 }
 
 export const query = graphql`
-  query getAllposts {
-    posts: allWpPost {
-      totalCount
-      nodes {
-        categories {
-          nodes {
-            name
-          }
-        }
-        id
-        excerpt
-        date
-        slug
-        title
-        featuredImage {
-          node {
-            localFile {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
+  query getAllposts($category: String = "portfolio") {
+    posts: wpCategory(name: { eq: $category }) {
+      count
+      posts {
+        nodes {
+          date
+          excerpt
+          slug
+          id
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
                 }
               }
             }
           }
+          title
+        }
+      }
+    }
+    childCat: wpCategory(name: { eq: "portfolio" }) {
+      wpChildren {
+        nodes {
+          name
         }
       }
     }
