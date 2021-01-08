@@ -18,9 +18,7 @@ export default function Layout({ children }) {
   useEffect(() => {
     window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
 
-    return window.removeEventListener('resize', () =>
-      setWindowWidth(window.innerWidth)
-    );
+    return () => window.removeEventListener('resize', () => {});
   });
   return (
     <LayoutStyles>
