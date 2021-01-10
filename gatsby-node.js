@@ -37,7 +37,7 @@ async function turnPortfolioPostsIntoPages({ graphql, actions }) {
       component: postTemplate,
       context: {
         slug: post.slug,
-        category: post.categories.nodes,
+        categories: post.categories.nodes,
       },
     })
   );
