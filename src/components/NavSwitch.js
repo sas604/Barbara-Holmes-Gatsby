@@ -28,13 +28,22 @@ const BurgerStyles = styled(motion.button)`
       width: 1.5rem;
       height: 0.2rem;
       transform-origin: -1.6px;
-      background-color: var(--white);
+      background-color: ${(props) => {
+        if (!props.navOpen) {
+          console.log(props.navOpen);
+          return props.color;
+        }
+        return 'var(--white)';
+      }};
     }
   }
 `;
-export default function NavSwitch({ onClick, navOpen }) {
+export default function NavSwitch({ onClick, navOpen, color = 'white' }) {
   return (
     <BurgerStyles
+      title="menu toggle"
+      color={color}
+      navOpen={navOpen}
       animate={navOpen ? 'open' : 'close'}
       onClick={() => onClick()}
     >

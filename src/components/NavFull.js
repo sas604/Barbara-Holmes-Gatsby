@@ -8,7 +8,7 @@ export default function NavFull() {
     isCurrent ? { className: 'active' } : { className: 'notActive' };
 
   return (
-    <NavStyles>
+    <NavStyles style={{ height: 'unset' }}>
       <ul>
         <li>
           <Link getProps={isActive} to="/#about">

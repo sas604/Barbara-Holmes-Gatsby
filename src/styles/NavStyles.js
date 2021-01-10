@@ -15,8 +15,10 @@ export const NavStyles = styled.nav`
     width: auto;
     ul {
       padding-left: 1.5rem;
+      max-width: 250px;
     }
   }
+
   li + li {
     margin-top: 1rem;
   }
@@ -30,7 +32,7 @@ export const NavStyles = styled.nav`
     }
 
     a {
-      display: block;
+      padding: 0.5rem 0.5rem 0.5rem 0rem;
     }
   }
 `;

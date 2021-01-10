@@ -11,19 +11,24 @@ import Footer from './Footer';
 import NavFull from './NavFull';
 
 const LayoutStyles = styled.div``;
-export default function Layout({ children }) {
+export default function Layout({ children, navColor = 'var(--white)' }) {
   const [navOpen, setOpenNav] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+  const resize = () => setWindowWidth(window.innerWidth);
   useEffect(() => {
-    window.addEventListener('resize', () => setWindowWidth(window.innerWidth));
+    resize();
+    window.addEventListener('resize', resize);
 
-    return () => window.removeEventListener('resize', () => {});
+    return () => window.removeEventListener('resize', resize);
   });
   return (
     <LayoutStyles>
       <GlobalStyles />
-      <NavSwitch navOpen={navOpen} onClick={() => setOpenNav(!navOpen)} />
+      <NavSwitch
+        color={navColor}
+        navOpen={navOpen}
+        onClick={() => setOpenNav(!navOpen)}
+      />
       {windowWidth > 960 ? (
         <NavFull />
       ) : (
