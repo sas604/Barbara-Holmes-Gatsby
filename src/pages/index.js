@@ -32,9 +32,9 @@ const HeroSectionStyles = styled.div`
     display: grid;
 
     justify-content: center;
-    grid-template-columns: repeat(12, minmax(50px, 90px));
+    grid-template-columns: repeat(12, minmax(50px, 1fr));
     gap: 1rem 20px;
-    padding: 2rem 1.5rem;
+    padding: 3rem 1.5rem 5rem;
     min-height: 100vh;
     .hero {
       grid-column: 5/-1;
@@ -49,6 +49,7 @@ const HeroSectionStyles = styled.div`
       grid-column: 1/-1;
       z-index: 5;
       padding: 0;
+      padding-bottom: 3rem;
       color: var(--blue);
       h1 {
         font-size: 5rem;
