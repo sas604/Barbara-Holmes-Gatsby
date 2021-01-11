@@ -30,7 +30,6 @@ const BurgerStyles = styled(motion.button)`
       transform-origin: -1.6px;
       background-color: ${(props) => {
         if (!props.navOpen) {
-          console.log(props.navOpen);
           return props.color;
         }
         return 'var(--white)';
