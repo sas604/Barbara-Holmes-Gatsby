@@ -13,7 +13,7 @@ export default function Footer() {
 
   return (
     <FooterStyles>
-      <Link to="/contact">Contacts</Link> <Link to="/resume">Resume</Link>
+      <Link to="/contacts">Contacts</Link> <Link to="/resume">Resume</Link>
       <h5>&copy; BARBARA HOLMES {date}</h5>
     </FooterStyles>
   );

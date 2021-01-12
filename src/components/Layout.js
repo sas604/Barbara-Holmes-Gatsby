@@ -2,15 +2,14 @@ import React, { useEffect, useState } from 'react';
 import 'fontsource-raleway';
 import 'fontsource-raleway/300.css'; // Weight 300.
 import 'fontsource-raleway/600.css';
-import styled from 'styled-components';
 import 'normalize.css';
+import '@wordpress/block-library/build-style/style.css';
 import GlobalStyles from '../styles/GlobalStyles';
 import Nav from './Nav';
 import NavSwitch from './NavSwitch';
 import Footer from './Footer';
 import NavFull from './NavFull';
 
-const LayoutStyles = styled.div``;
 export default function Layout({ children, navColor = 'var(--white)' }) {
   const [navOpen, setOpenNav] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -22,7 +21,7 @@ export default function Layout({ children, navColor = 'var(--white)' }) {
     return () => window.removeEventListener('resize', resize);
   });
   return (
-    <LayoutStyles>
+    <div>
       <GlobalStyles />
       <NavSwitch
         color={navColor}
@@ -36,6 +35,6 @@ export default function Layout({ children, navColor = 'var(--white)' }) {
       )}
       <div>{children}</div>
       <Footer />
-    </LayoutStyles>
+    </div>
   );
 }

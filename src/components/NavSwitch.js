@@ -16,7 +16,7 @@ const BurgerStyles = styled(motion.button)`
     position: absolute;
     z-index: 5;
     top: 1rem;
-    left: 0.5rem;
+    left: 1rem;
     &:focus {
       outline-color: var(--blue);
     }

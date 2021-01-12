@@ -30,8 +30,6 @@ const IndexPageStyles = styled.section`
 const HeroSectionStyles = styled.div`
   @media (min-width: 960px) {
     display: grid;
-
-    justify-content: center;
     grid-template-columns: repeat(12, minmax(50px, 1fr));
     gap: 1rem 20px;
     padding: 3rem 1.5rem 5rem;
@@ -39,7 +37,6 @@ const HeroSectionStyles = styled.div`
     .hero {
       grid-column: 5/-1;
       grid-row: 1;
-      opacity: 0.99;
       align-self: flex-end;
       background-color: black;
     }
@@ -103,7 +100,7 @@ const AboutSectionStyles = styled.section`
   }
   @media (min-width: 960px) {
     display: grid;
-    justify-content: center;
+    /* justify-content: center; */
     grid-template-columns: repeat(12, minmax(50px, 90px));
     max-width: none;
     gap: 1rem 20px;

@@ -53,6 +53,7 @@ export const HeroSectionStyles = styled.div`
     }
     h1 {
       min-height: 0;
+      font-size: 2.4rem;
     }
     ul {
       margin-bottom: 0;

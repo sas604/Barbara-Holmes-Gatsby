@@ -19,9 +19,15 @@ const PaginationStyles = styled.div`
     font-weight: 600;
     font-style: italic;
   }
+
   button:disabled {
     color: gray;
     pointer-events: none;
+  }
+  @media (max-width: 500px) {
+    .large-only {
+      display: none;
+    }
   }
 `;
 
@@ -29,17 +35,16 @@ const Pagination = ({ pageSize, currentPage, length, setCurrentPage }) => {
   const totalPages = Math.ceil(length / pageSize);
   const hasNext = currentPage + 2 > totalPages;
   const hasPrev = currentPage <= 0;
-  console.log(totalPages);
-  console.log(hasPrev);
   if (totalPages === 1) return null;
   return (
     <PaginationStyles>
       <button
         disabled={hasPrev}
         type="button"
+        title="Previous page"
         onClick={() => setCurrentPage(currentPage - 1)}
       >
-        &#8592; Prev
+        &#8592; <span className="large-only">Prev</span>
       </button>
       {Array.from({ length: totalPages }).map((_, i) => (
         <button
@@ -52,11 +57,12 @@ const Pagination = ({ pageSize, currentPage, length, setCurrentPage }) => {
         </button>
       ))}
       <button
+        title="Next Page"
         onClick={() => setCurrentPage(currentPage + 1)}
         disabled={hasNext}
         type="button"
       >
-        Next &#8594;
+        <span className="large-only">Next</span> &#8594;
       </button>
     </PaginationStyles>
   );

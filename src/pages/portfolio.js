@@ -6,9 +6,11 @@ import * as styles from '../styles/PortfolioStyles';
 import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
 
-export default function Portfolio({ data, pageContext }) {
+export default function Portfolio({ data, pageContext, location }) {
   // page size
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(
+    location.state.currentPage || 0
+  );
   const pageSize = 6;
   const posts = data.posts.posts.nodes;
   const getPostsPerPageSize = (current, size, arr) => {
@@ -16,7 +18,7 @@ export default function Portfolio({ data, pageContext }) {
     const finish = start + size;
     return arr.slice(start, finish);
   };
-
+  console.log(location);
   return (
     <Layout navColor="var(--blue)">
       <styles.HeroSectionStyles>
@@ -80,7 +82,7 @@ export default function Portfolio({ data, pageContext }) {
                 exit={{ opacity: 0 }}
                 key={post.id}
               >
-                <Link to={`/portfolio/${post.slug}`}>
+                <Link to={`/portfolio/${post.slug}`} state={{ currentPage }}>
                   <Img
                     fluid={
                       post.featuredImage.node.localFile.childImageSharp.fluid
