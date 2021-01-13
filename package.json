@@ -38,6 +38,7 @@
     "gatsby-source-filesystem": "^2.8.1",
     "gatsby-source-wordpress-experimental": "^6.0.0",
     "gatsby-transformer-sharp": "^2.9.0",
+    "mailgun-js": "^0.22.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

@@ -9,6 +9,7 @@ export default {
     description: 'Barba Holmes portfolio website',
     twitter: '@alex_tagunovomm',
   },
+  flags: { PRESERVE_WEBPACK_CACHE: true },
   plugins: [
     {
       resolve: 'gatsby-source-wordpress-experimental',
