@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const PaginationStyles = styled.div`
+  margin: 1rem 0;
   display: flex;
   margin: 1rem 0;
   gap: 1rem;

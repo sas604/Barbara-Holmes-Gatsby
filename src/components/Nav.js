@@ -1,15 +1,21 @@
 import { motion } from 'framer-motion';
 import { Link } from 'gatsby';
 import React from 'react';
+import styled from 'styled-components';
 
 import { NavStyles } from '../styles/NavStyles';
 
+const MobileNavStyles = styled(NavStyles)`
+  li :any-link {
+    color: var(--gold-bright);
+  }
+`;
 export default function Nav({ navOpen }) {
   const isActive = ({ isCurrent }) =>
     isCurrent ? { className: 'active' } : { className: 'notActive' };
 
   return (
-    <NavStyles
+    <MobileNavStyles
       as={motion.nav}
       initial={{ x: '-100%' }}
       animate={navOpen ? 'open' : 'closed'}
@@ -33,6 +39,6 @@ export default function Nav({ navOpen }) {
           <Link to="/resume">Resume</Link>{' '}
         </li>
       </motion.ul>
-    </NavStyles>
+    </MobileNavStyles>
   );
 }
