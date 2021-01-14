@@ -9,7 +9,7 @@ import Pagination from '../components/Pagination';
 export default function Portfolio({ data, pageContext, location }) {
   // page size
   const [currentPage, setCurrentPage] = useState(
-    location.state.currentPage || 0
+    location?.state.currentPage || 0
   );
   const pageSize = 6;
   const posts = data.posts.posts.nodes;
