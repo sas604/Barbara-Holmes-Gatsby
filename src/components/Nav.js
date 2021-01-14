@@ -17,7 +17,7 @@ export default function Nav({ navOpen }) {
     >
       <motion.ul layout>
         <li>
-          <Link getProps={isActive} to="/#about">
+          <Link getProps={isActive} to="/">
             About
           </Link>
         </li>

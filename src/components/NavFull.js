@@ -11,7 +11,7 @@ export default function NavFull() {
     <NavStyles style={{ height: 'unset' }}>
       <ul>
         <li>
-          <Link getProps={isActive} to="/#about">
+          <Link getProps={isActive} to="/">
             About
           </Link>
         </li>
