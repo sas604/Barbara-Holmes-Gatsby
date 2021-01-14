@@ -1,10 +1,11 @@
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import * as styles from '../styles/PortfolioStyles';
 import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
+import SEO from '../components/SEO';
 
 export default function Portfolio({ data, pageContext, location }) {
   // page size
@@ -21,6 +22,9 @@ export default function Portfolio({ data, pageContext, location }) {
   console.log(location);
   return (
     <Layout navColor="var(--blue)">
+      <SEO
+        title={`Portfolio-${pageContext.category ? pageContext.category : ''}`}
+      />
       <styles.HeroSectionStyles>
         <Img fluid={data.lamp.fluid} alt={data.lamp.fluid.originalName} />
         <Img

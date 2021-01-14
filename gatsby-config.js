@@ -5,8 +5,9 @@ dotenv.config({ path: '.env' });
 export default {
   siteMetadata: {
     title: `BARBARA HOLMES`,
-    siteUrl: 'https://tagunovdesign.com',
-    description: 'Barba Holmes portfolio website',
+    // siteUrl: 'https://tagunovdesign.com',
+    description:
+      'Barba Holmes portfolio websit. Website made to explore Gatsby and WordPress integration',
     twitter: '@alex_tagunov',
   },
   plugins: [
@@ -26,7 +27,6 @@ export default {
         name: 'images',
         path: './src/images/',
       },
-      __key: 'images',
     },
   ],
 };

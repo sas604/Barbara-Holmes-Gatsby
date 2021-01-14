@@ -3,6 +3,7 @@ import GatsbyImage from 'gatsby-image';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 import { useForm } from '../utils/hooks';
 
 const ContactPageStyles = styled.div`
@@ -201,6 +202,7 @@ export default function Contacts({ data }) {
   });
   return (
     <Layout>
+      <SEO title="Contacs" />
       <ContactPageStyles>
         <GatsbyImage
           fluid={data.image.fluid}
@@ -273,7 +275,7 @@ export default function Contacts({ data }) {
             </div>
 
             <button disabled={status === 'loading'} type="submit">
-              {status === 'loading' ? 'loadng...' : 'send'}
+              {status === 'loading' ? 'Loadng...' : 'Send'}
             </button>
           </form>
         </div>

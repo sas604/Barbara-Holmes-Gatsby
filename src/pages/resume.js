@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const ResumeStyles = styled.div`
   max-width: 650px;
@@ -33,6 +34,7 @@ const ResumeStyles = styled.div`
 export default function Resume({ data }) {
   return (
     <Layout navColor="var(--blue)">
+      <SEO title="Resume" />
       <ResumeStyles>
         <h1>{data.wpPage.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: data.wpPage.content }} />

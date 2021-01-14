@@ -3,6 +3,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import Layout from '../components/Layout';
+import SEO from '../components/SEO';
 
 const IndexPageStyles = styled.section`
   .hero {
@@ -132,6 +133,7 @@ const AboutSectionStyles = styled.section`
 export default function IndexPage({ data }) {
   return (
     <Layout>
+      <SEO title="Home Page" />
       <IndexPageStyles>
         <HeroSectionStyles>
           <Img
