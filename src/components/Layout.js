@@ -12,8 +12,7 @@ import NavFull from './NavFull';
 
 export default function Layout({ children, navColor = 'var(--white)' }) {
   const [navOpen, setOpenNav] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const node = useRef();
+  const [windowWidth, setWindowWidth] = useState(0);
   const resize = () => setWindowWidth(window.innerWidth);
   useEffect(() => {
     if (navOpen) {
