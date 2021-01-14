@@ -6,6 +6,9 @@ export const NavStyles = styled.nav`
   width: 70%;
   height: 100vh;
   z-index: 4;
+  a.active {
+    border-bottom: 1px solid;
+  }
   ul {
     list-style: none;
   }

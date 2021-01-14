@@ -151,5 +151,6 @@ export const PortfolioNav = styled.nav`
   }
   .active {
     background-color: var(--blue);
+    color: var(--gold-bright);
   }
 `;

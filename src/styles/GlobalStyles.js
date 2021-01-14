@@ -4,7 +4,7 @@ const GlobalStyles = createGlobalStyle`
 
 :root{
     --white:hsl(40, 1%, 98%);
-    --gold: hsl(35, 78%, 60%);
+    --gold: hsl(35, 78%, 30%);
     --blue: hsl(207,19%,35%);
     --gray: hsl(207, 17%, 25%);
     --black:hsl(207,18%,15%);
