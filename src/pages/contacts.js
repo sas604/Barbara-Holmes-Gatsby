@@ -130,6 +130,9 @@ const ContactPageStyles = styled.div`
       }
     }
     .form-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       flex: 45%;
       position: relative;
       background-color: transparent;
