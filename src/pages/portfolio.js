@@ -1,6 +1,6 @@
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import * as styles from '../styles/PortfolioStyles';
 import Layout from '../components/Layout';
@@ -8,9 +8,10 @@ import Pagination from '../components/Pagination';
 
 export default function Portfolio({ data, pageContext, location }) {
   // page size
-  const [currentPage, setCurrentPage] = useState(
-    location.state.currentPage || 0
-  );
+  const [currentPage, setCurrentPage] = useState(0);
+  useEffect(() => setCurrentPage(location.state.currentPage || 0), [
+    location.state.currentPage,
+  ]);
   const pageSize = 6;
   const posts = data.posts.posts.nodes;
   const getPostsPerPageSize = (current, size, arr) => {
