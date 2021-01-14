@@ -41,6 +41,13 @@ const ContactPageStyles = styled.div`
     background: none;
     color: var(--gold);
     cursor: pointer;
+    min-width: 150px;
+  }
+  button:disabled {
+    background-color: var(--white);
+    border: transparent;
+    pointer-events: none;
+    color: var(--black);
   }
   .field {
     overflow: hidden;
@@ -105,30 +112,19 @@ const ContactPageStyles = styled.div`
     color: var(--black);
     background-color: var(--white);
   }
-  .modal {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    background-color: var(--white);
-    opacity: 0.91;
-    backdrop-filter: blur(10px);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
   .status {
     color: var(--white);
     font-size: 1.3em;
+    margin: 0;
   }
   @media (min-width: 960px) {
     display: flex;
-    max-height: calc(100vh - 4rem);
+    height: 100vh;
     .gatsby-image-wrapper {
       background-color: var(--blue);
       flex: 55%;
       max-height: unset;
+      height: 100%;
       img {
         opacity: 0.4 !important;
       }
@@ -210,12 +206,6 @@ export default function Contacts({ data }) {
         <div className="form-wrapper">
           <h1>Send me a message</h1>
           <form onSubmit={submitForm}>
-            {status === 'loading' && (
-              <div className="modal">
-                <span>Loading...</span>
-              </div>
-            )}
-
             {message && <p className="status">{message}</p>}
             <div className="field">
               <input
@@ -223,6 +213,7 @@ export default function Contacts({ data }) {
                 onChange={updateValues}
                 value={values.name}
                 name="name"
+                required
                 placeholder="Your name"
                 id="name"
               />
@@ -230,6 +221,7 @@ export default function Contacts({ data }) {
             </div>
             <div className="field">
               <input
+                required
                 type="text"
                 onChange={updateValues}
                 value={values.subject}
@@ -241,6 +233,7 @@ export default function Contacts({ data }) {
             </div>
             <div className="field">
               <input
+                required
                 type="email"
                 onChange={updateValues}
                 value={values.email}
@@ -252,6 +245,7 @@ export default function Contacts({ data }) {
             </div>
             <div className="field">
               <textarea
+                required
                 onChange={updateValues}
                 value={values.body}
                 name="body"
@@ -275,7 +269,9 @@ export default function Contacts({ data }) {
               </label>
             </div>
 
-            <button type="submit">Send</button>
+            <button disabled={status === 'loading'} type="submit">
+              {status === 'loading' ? 'loadng...' : 'send'}
+            </button>
           </form>
         </div>
       </ContactPageStyles>
