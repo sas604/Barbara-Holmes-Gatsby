@@ -6,11 +6,18 @@ const GlobalStyles = createGlobalStyle`
     --white:hsl(40, 1%, 98%);
     --gold: hsl(35, 78%, 60%);
     --blue: hsl(207,19%,35%);
-    --gray: hsl(207, 17% 25%);
+    --gray: hsl(207, 17%, 25%);
     --black:hsl(207,18%,15%);
     --gold-bright:hsl(40, 85%, 50%); 
     --medium: 960px;
     --small: 568px;
+
+}
+.fixed{
+  
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  padding-right:12px;
 
 }
   html {
