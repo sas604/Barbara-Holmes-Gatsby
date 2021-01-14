@@ -8,22 +8,9 @@ import Pagination from '../components/Pagination';
 
 export default function Portfolio({ data, pageContext, location }) {
   // page size
-<<<<<<< HEAD
-<<<<<<< HEAD
   const [currentPage, setCurrentPage] = useState(
     location?.state.currentPage || 0
   );
-=======
-=======
->>>>>>> 298fd513cb5e7d0ab6cfc1b4bc252e4d1ca1c0cb
-  const [currentPage, setCurrentPage] = useState(0);
-  useEffect(() => setCurrentPage(location.state.currentPage || 0), [
-    location.state.currentPage,
-  ]);
-<<<<<<< HEAD
->>>>>>> 298fd513cb5e7d0ab6cfc1b4bc252e4d1ca1c0cb
-=======
->>>>>>> 298fd513cb5e7d0ab6cfc1b4bc252e4d1ca1c0cb
   const pageSize = 6;
   const posts = data.posts.posts.nodes;
   const getPostsPerPageSize = (current, size, arr) => {
