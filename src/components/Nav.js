@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { NavStyles } from '../styles/NavStyles';
 
 const MobileNavStyles = styled(NavStyles)`
-  li :any-link {
+  a {
     color: var(--gold-bright);
   }
 `;
