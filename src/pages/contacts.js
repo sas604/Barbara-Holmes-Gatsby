@@ -123,12 +123,12 @@ const ContactPageStyles = styled.div`
     display: flex;
     height: 100vh;
     .gatsby-image-wrapper {
-      background-color: var(--blue);
+      background-color: var(--white);
       flex: 55%;
       max-height: unset;
       height: 100%;
       img {
-        opacity: 0.4 !important;
+        opacity: 0.3 !important;
       }
     }
     .form-wrapper {
