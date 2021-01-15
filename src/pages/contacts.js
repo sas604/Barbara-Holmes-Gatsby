@@ -178,9 +178,7 @@ export default function Contacts({ data }) {
       body: JSON.stringify(values),
     })
       .then((response) => response.json())
-      .then((response) => console.log(response.body))
       .then(() => {
-        console.log('succes');
         setStatus('success');
         setMessage(
           'Thank you,Your message has been successfully sent. I will contact you very soon!'

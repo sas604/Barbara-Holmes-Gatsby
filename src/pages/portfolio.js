@@ -19,7 +19,6 @@ export default function Portfolio({ data, pageContext, location }) {
     const finish = start + size;
     return arr.slice(start, finish);
   };
-  console.log(location);
   return (
     <Layout navColor="var(--blue)">
       <SEO

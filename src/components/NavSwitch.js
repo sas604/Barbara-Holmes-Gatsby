@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const BurgerStyles = styled(motion.button)`
   display: none;
+  touch-action: manipulation;
   @media (max-width: 960px) {
     appearance: none;
     border: 0;

@@ -16,13 +16,12 @@ const GlobalStyles = createGlobalStyle`
 .fixed{
   
   overflow: hidden;
-  -webkit-overflow-scrolling: touch;
-  padding-right:12px;
-
+  -webkit-overflow-scrolling: touch;  
 }
   html {
     font-size: 16px;
   box-sizing: border-box;
+ 
 }
 *, *:before, *:after {
   box-sizing: inherit;
