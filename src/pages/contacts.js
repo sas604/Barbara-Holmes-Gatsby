@@ -40,7 +40,7 @@ const ContactPageStyles = styled.div`
     font-weight: 600;
     border: 1px solid var(--gold);
     background: none;
-    color: var(--gold);
+    color: var(--gold-bright);
     cursor: pointer;
     min-width: 150px;
   }
@@ -109,7 +109,7 @@ const ContactPageStyles = styled.div`
     cursor: pointer;
     color: var(--white);
   }
-  input:not(:placeholder-shown) {
+  input:not(:placeholder-shown) textarea:not(:placeholder-shown) {
     color: var(--black);
     background-color: var(--white);
   }
