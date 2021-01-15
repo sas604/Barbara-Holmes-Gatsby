@@ -38,7 +38,7 @@ const ContactPageStyles = styled.div`
     margin-top: 1em;
     font-style: italic;
     font-weight: 600;
-    border: 1px solid var(--gold);
+    border: 1px solid;
     background: none;
     color: var(--gold-bright);
     cursor: pointer;
