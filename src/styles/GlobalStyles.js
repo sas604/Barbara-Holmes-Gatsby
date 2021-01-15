@@ -13,11 +13,14 @@ const GlobalStyles = createGlobalStyle`
     --small: 568px;
 
 }
-.fixed{
+@media(max-width:960px){
+  .fixed{
   
   overflow: hidden;
   -webkit-overflow-scrolling: touch;  
 }
+}
+
   html {
     font-size: 16px;
   box-sizing: border-box;
