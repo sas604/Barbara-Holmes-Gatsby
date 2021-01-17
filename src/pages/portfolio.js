@@ -98,7 +98,6 @@ export default function Portfolio({ data, pageContext }) {
                       }
                     />
                     <h3>{post.title.toLowerCase()}</h3>
-                    <p>{post.id}</p>
                     <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
                   </Link>
                 </motion.li>
