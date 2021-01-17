@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'fontsource-raleway';
 import 'fontsource-raleway/300.css'; // Weight 300.
 import 'fontsource-raleway/600.css';
@@ -12,11 +12,7 @@ import Footer from './Footer';
 import NavFull from './NavFull';
 import { PageNumberProvider } from './PageNumberContext';
 
-export default function Layout({
-  location,
-  children,
-  navColor = 'var(--white)',
-}) {
+export default function Layout({ children, navColor = 'var(--white)' }) {
   const [navOpen, setOpenNav] = useState(false);
   const [windowWidth, setWindowWidth] = useState(0);
   const resize = () => setWindowWidth(window.innerWidth);
