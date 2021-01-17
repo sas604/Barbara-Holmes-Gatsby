@@ -1,8 +1,8 @@
+import { motion } from 'framer-motion';
 import { graphql, navigate } from 'gatsby';
 import Img from 'gatsby-image';
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '../components/Layout';
 
 const HeroSectionStyles = styled.div`
   height: 75vh;
@@ -88,7 +88,12 @@ const BackBtn = styled.button`
 `;
 export default function Post({ data }) {
   return (
-    <Layout navColor="var(--blue)">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <HeroSectionStyles>
         <h1> {data.wpPost.title}</h1>
         <Img
@@ -102,7 +107,7 @@ export default function Post({ data }) {
       <BackBtn type="button" onClick={() => navigate(-1)}>
         &#8592; Back
       </BackBtn>
-    </Layout>
+    </motion.div>
   );
 }
 

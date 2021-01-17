@@ -16,8 +16,8 @@ export default function Footer() {
 
   return (
     <FooterStyles>
-      <Link to="/contacts">Contacts</Link> <span>|</span>
-      <Link to="/resume">Resume</Link>
+      <Link to="/contacts/">Contacts</Link> <span>|</span>
+      <Link to="/resume/">Resume</Link>
       <h5>&copy; BARBARA HOLMES {date}</h5>
     </FooterStyles>
   );

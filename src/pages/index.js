@@ -2,7 +2,7 @@ import { graphql } from 'gatsby';
 import React from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
-import Layout from '../components/Layout';
+import { motion } from 'framer-motion';
 import SEO from '../components/SEO';
 
 const IndexPageStyles = styled.section`
@@ -132,7 +132,12 @@ const AboutSectionStyles = styled.section`
 `;
 export default function IndexPage({ data }) {
   return (
-    <Layout>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <SEO title="Home Page" />
       <IndexPageStyles>
         <HeroSectionStyles>
@@ -216,7 +221,7 @@ export default function IndexPage({ data }) {
           </p>
         </AboutSectionStyles>
       </IndexPageStyles>
-    </Layout>
+    </motion.div>
   );
 }
 

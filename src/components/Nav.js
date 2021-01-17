@@ -10,7 +10,7 @@ const MobileNavStyles = styled(NavStyles)`
     color: var(--gold-bright);
   }
 `;
-export default function Nav({ navOpen }) {
+export default function Nav({ navOpen, setOpenNav }) {
   const isActive = ({ isCurrent }) =>
     isCurrent ? { className: 'active' } : { className: 'notActive' };
 
@@ -23,20 +23,28 @@ export default function Nav({ navOpen }) {
     >
       <motion.ul layout>
         <li>
-          <Link getProps={isActive} to="/">
+          <Link getProps={isActive} to="/" onClick={() => setOpenNav(false)}>
             About
           </Link>
         </li>
         <li>
-          <Link getProps={isActive} to="/portfolio">
+          <Link
+            getProps={isActive}
+            to="/portfolio/"
+            onClick={() => setOpenNav(false)}
+          >
             Portfolio
           </Link>{' '}
         </li>
         <li>
-          <Link to="/contacts">Contacts</Link>{' '}
+          <Link to="/contacts/" onClick={() => setOpenNav(false)}>
+            Contacts
+          </Link>{' '}
         </li>
         <li>
-          <Link to="/resume">Resume</Link>{' '}
+          <Link to="/resume/" onClick={() => setOpenNav(false)}>
+            Resume
+          </Link>{' '}
         </li>
       </motion.ul>
     </MobileNavStyles>

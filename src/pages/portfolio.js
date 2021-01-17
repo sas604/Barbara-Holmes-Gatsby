@@ -1,18 +1,17 @@
 import { graphql, Link } from 'gatsby';
 import Img from 'gatsby-image';
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import * as styles from '../styles/PortfolioStyles';
-import Layout from '../components/Layout';
 import Pagination from '../components/Pagination';
 import SEO from '../components/SEO';
+import PageNamberContext from '../components/PageNumberContext';
 
-export default function Portfolio({ data, pageContext, location }) {
+export default function Portfolio({ data, pageContext }) {
   // page size
-  const [currentPage, setCurrentPage] = useState(
-    location.state?.currentPage || 0
+  const { pageSize, currentPage, setCurrentPage } = useContext(
+    PageNamberContext
   );
-  const pageSize = 6;
   const posts = data.posts.posts.nodes;
   const getPostsPerPageSize = (current, size, arr) => {
     const start = current * size;
@@ -20,7 +19,12 @@ export default function Portfolio({ data, pageContext, location }) {
     return arr.slice(start, finish);
   };
   return (
-    <Layout navColor="var(--blue)">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <SEO
         title={`Portfolio-${pageContext.category ? pageContext.category : ''}`}
       />
@@ -71,35 +75,39 @@ export default function Portfolio({ data, pageContext, location }) {
       </styles.HeroSectionStyles>
       <styles.ProjectGridStyles>
         <Pagination
-          pageSize={6}
+          pageSize={pageSize}
           length={posts.length}
           currentPage={currentPage}
           setCurrentPage={setCurrentPage}
         />
-        <ul>
-          <AnimatePresence>
-            {getPostsPerPageSize(currentPage, pageSize, posts).map((post) => (
-              <motion.li
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                key={post.id}
-              >
-                <Link to={`/portfolio/${post.slug}`} state={{ currentPage }}>
-                  <Img
-                    fluid={
-                      post.featuredImage.node.localFile.childImageSharp.fluid
-                    }
-                  />
-                  <h3>{post.title.toLowerCase()}</h3>
-                  <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
-                </Link>
-              </motion.li>
-            ))}
-          </AnimatePresence>
-        </ul>
+        <AnimatePresence>
+          <motion.ul>
+            {getPostsPerPageSize(currentPage, pageSize, posts).map(
+              (post, i) => (
+                <motion.li
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ delay: 0.2 * i }}
+                  key={post.id}
+                >
+                  <Link to={`/portfolio/${post.slug}`} state={{ currentPage }}>
+                    <Img
+                      fluid={
+                        post.featuredImage.node.localFile.childImageSharp.fluid
+                      }
+                    />
+                    <h3>{post.title.toLowerCase()}</h3>
+                    <p>{post.id}</p>
+                    <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+                  </Link>
+                </motion.li>
+              )
+            )}
+          </motion.ul>
+        </AnimatePresence>
       </styles.ProjectGridStyles>
-    </Layout>
+    </motion.div>
   );
 }
 

@@ -16,15 +16,15 @@ export default function NavFull() {
           </Link>
         </li>
         <li>
-          <Link getProps={isActive} to="/portfolio">
+          <Link getProps={isActive} to="/portfolio/">
             Portfolio
           </Link>{' '}
         </li>
         <li>
-          <Link to="/contacts">Contacts</Link>{' '}
+          <Link to="/contacts/">Contacts</Link>{' '}
         </li>
         <li>
-          <Link to="/resume">Resume</Link>{' '}
+          <Link to="/resume/">Resume</Link>{' '}
         </li>
       </ul>
     </NavStyles>

@@ -1,8 +1,8 @@
+import { motion } from 'framer-motion';
 import { graphql } from 'gatsby';
 import GatsbyImage from 'gatsby-image';
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
-import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { useForm } from '../utils/hooks';
 
@@ -200,7 +200,12 @@ export default function Contacts({ data }) {
     }
   });
   return (
-    <Layout>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+    >
       <SEO title="Contacs" />
       <ContactPageStyles>
         <GatsbyImage
@@ -279,7 +284,7 @@ export default function Contacts({ data }) {
           </form>
         </div>
       </ContactPageStyles>
-    </Layout>
+    </motion.div>
   );
 }
 export const query = graphql`

@@ -1,8 +1,8 @@
+import { motion } from 'framer-motion';
 import { graphql } from 'gatsby';
 
 import React from 'react';
 import styled from 'styled-components';
-import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 
 const ResumeStyles = styled.div`
@@ -26,20 +26,29 @@ const ResumeStyles = styled.div`
   }
   p > a {
     display: block;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
   @media (max-width: 960px) {
-    margin: 0 auto;
+    margin: 0 auto 3rem;
   }
 `;
 export default function Resume({ data }) {
   return (
-    <Layout navColor="var(--blue)">
+    <>
       <SEO title="Resume" />
-      <ResumeStyles>
-        <h1>{data.wpPage.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: data.wpPage.content }} />
-      </ResumeStyles>
-    </Layout>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
+      >
+        <ResumeStyles>
+          <h1>{data.wpPage.title}</h1>
+          <div dangerouslySetInnerHTML={{ __html: data.wpPage.content }} />
+        </ResumeStyles>
+      </motion.div>
+    </>
   );
 }
 export const query = graphql`
