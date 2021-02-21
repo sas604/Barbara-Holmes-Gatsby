@@ -15,7 +15,7 @@ const GlobalStyles = createGlobalStyle`
 }
 @media(max-width:960px){
   .fixed{
-  
+  height:100vh;
   overflow: hidden;
   -webkit-overflow-scrolling: touch;  
 }
