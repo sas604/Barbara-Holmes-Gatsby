@@ -9,6 +9,9 @@ const FooterStyles = styled.footer`
   span {
     margin: 0 0.5rem;
   }
+  p {
+    margin: 0;
+  }
 `;
 
 export default function Footer() {
@@ -18,7 +21,7 @@ export default function Footer() {
     <FooterStyles>
       <Link to="/contacts/">Contacts</Link> <span>|</span>
       <Link to="/resume/">Resume</Link>
-      <h5>&copy; BARBARA HOLMES {date}</h5>
+      <p>&copy; BARBARA HOLMES {date}</p>
     </FooterStyles>
   );
 }
