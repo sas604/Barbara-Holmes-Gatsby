@@ -170,7 +170,7 @@ export default function Contacts({ data }) {
   const submitForm = (e) => {
     e.preventDefault();
     setStatus('loading');
-    fetch('api/contact', {
+    fetch('/.netlify/functions/contact', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
